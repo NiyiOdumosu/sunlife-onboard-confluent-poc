@@ -1,0 +1,26 @@
+---
+context: "Test"
+company: "Sunlife"
+env: "stage"
+source: "source"
+projects:
+  consumer:
+    principal: "Group:DevTeam1"
+  producer:
+    principal: "Group:DevTeam1"
+  topics:
+    name: "test-topic"
+    config:
+      replicationFactor: 2
+      numPartitions: 3
+    dataType: "avro"
+platform:
+  schemaRegistry:
+    instances:
+      principal: "Group:DevTeam1"
+      topic: "test-topic"
+      group: "string"
+  controlCenter:
+    instances:
+      principal: "Group:DevTeam1"
+      appId: "controlcenter"
