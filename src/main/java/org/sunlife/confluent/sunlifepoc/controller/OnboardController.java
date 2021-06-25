@@ -10,12 +10,10 @@ import org.sunlife.confluent.sunlifepoc.model.ConsumerGroup;
 import org.sunlife.confluent.sunlifepoc.model.Metadata;
 import org.sunlife.confluent.sunlifepoc.model.Schema;
 import org.sunlife.confluent.sunlifepoc.model.Topic;
-import org.sunlife.confluent.sunlifepoc.model.rbac.RBAC;
 import org.sunlife.confluent.sunlifepoc.repository.ConsumerGroupRepository;
 import org.sunlife.confluent.sunlifepoc.repository.MetadataRepository;
 import org.sunlife.confluent.sunlifepoc.repository.SchemaRepository;
 import org.sunlife.confluent.sunlifepoc.repository.TopicRepository;
-import org.sunlife.confluent.sunlifepoc.service.DescriptorService;
 import org.sunlife.confluent.sunlifepoc.service.DescriptorServiceImpl;
 
 
@@ -130,9 +128,4 @@ public class OnboardController {
     }
 
 
-    @PostMapping("/rbac")
-    public RBAC newRBAC(@RequestBody RBAC newRBAC) {
-        logger.info("Created a new role for %s", newRBAC);
-        return newRBAC;
-    }
 }

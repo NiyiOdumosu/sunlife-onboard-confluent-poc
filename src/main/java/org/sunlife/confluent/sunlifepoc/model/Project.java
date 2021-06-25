@@ -1,11 +1,14 @@
 package org.sunlife.confluent.sunlifepoc.model;
 
 import lombok.Data;
+import org.sunlife.confluent.sunlifepoc.model.rbac.RBAC;
 
 @Data
 public class Project {
 
     private String name;
+
+    private RBAC rbac;
 
     private Consumer consumer;
 
@@ -13,7 +16,8 @@ public class Project {
 
     private Streams streams;
 
-    private TopicConfig topics;
+    private Schema schema;
 
+    private TopicConfig topics;
 
 }

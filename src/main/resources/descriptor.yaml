@@ -4,23 +4,26 @@ company: "Sunlife"
 env: "stage"
 source: "source"
 projects:
+  rbac:
+    developerRead:
+      principal: "Group:usersGroup-read"
+    developerWrite:
+      principal: "Group:usersGroup-write"
   consumer:
-    principal: "Group:DevTeam1"
+    principal: "Group:usersGroup-read"
   producer:
-    principal: "Group:DevTeam1"
+    principal: "Group:usersGroup-write"
+  schema:
+    id: 0
+    principal: "Group:usersGroup-read"
+    subject: "users"
+    dataType: "AVRO"
   topics:
-    name: "test-topic"
+    name: "users"
+    topics:
+    - principal: "usersGroup-read"
+    - principal: "usersGroup-write"
     config:
-      replicationFactor: 2
+      replicationFactor: 3
       numPartitions: 3
-    dataType: "avro"
-platform:
-  schemaRegistry:
-    instances:
-      principal: "Group:DevTeam1"
-      topic: "test-topic"
-      group: "string"
-  controlCenter:
-    instances:
-      principal: "Group:DevTeam1"
-      appId: "controlcenter"
+    dataType: "AVRO"

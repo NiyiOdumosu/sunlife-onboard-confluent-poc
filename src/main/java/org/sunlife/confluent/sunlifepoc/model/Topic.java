@@ -1,5 +1,6 @@
 package org.sunlife.confluent.sunlifepoc.model;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -22,6 +23,8 @@ public class Topic {
 
     private String cleanupPolicy;
     @Min(value = 1)
+    private Long replicationFactor;
+    @Min(value = 1)
     private Long minSyncReplicas;
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
@@ -33,6 +36,8 @@ public class Topic {
     @OneToOne(cascade = CascadeType.ALL)
     private Schema schema;
     @NotNull
-    private String resourceGroup;
+    private String consumerResourceGroup;
+    @NotNull
+    private String producerResourceGroup;
 
 }

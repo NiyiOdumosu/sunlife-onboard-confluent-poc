@@ -17,7 +17,4 @@ public class DescriptorFile {
 
    private Platform platform;
 
-   private RBAC rbac;
-
-
 }

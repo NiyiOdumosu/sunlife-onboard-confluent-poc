@@ -14,9 +14,13 @@ public class Schema {
     @GeneratedValue
     Long id;
 
+    private String principal;
+
     private String subject;
 
     private String dataType;
 
-    private String nameStrategy;
+    private String valueSchemaFile;
+
+    private String keySchemaFile;
 }
