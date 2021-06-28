@@ -1,8 +1,6 @@
 package org.sunlife.confluent.sunlifepoc.model;
 
-import lombok.Builder;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

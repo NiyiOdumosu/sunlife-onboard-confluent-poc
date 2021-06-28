@@ -74,8 +74,8 @@ public class DescriptorServiceImpl implements DescriptorService{
         List<Principal> principals = new ArrayList<>();
         Principal p1 = new Principal();
         Principal p2 = new Principal();
-        p1.setPrincipal(topic.getConsumerResourceGroup());
-        p2.setPrincipal(topic.getProducerResourceGroup());
+        p1.setPrincipal("Group:"+topic.getConsumerResourceGroup());
+        p2.setPrincipal("Group:"+topic.getProducerResourceGroup());
         principals.add(p1);
         principals.add(p2);
 
@@ -96,10 +96,18 @@ public class DescriptorServiceImpl implements DescriptorService{
         rbac.setDeveloperWrite(developerWrite);
 
 
+        //  Build Schema
+        ConfluentSchema schema = new ConfluentSchema();
+        schema.setDataType(topic.getSchema().getDataType());
+        schema.setSubject(topic.getSchema().getSubject());
+        schema.setPrincipal(topic.getSchema().getPrincipal());
+        schema.setKeySchemaFile(topic.getSchema().getKeySchemaFile());
+        schema.setValueSchemaFile(topic.getSchema().getValueSchemaFile());
+
         //Build project
         Project project = new Project();
         project.setRbac(rbac);
-        project.setSchema(topic.getSchema());
+        project.setSchema(schema);
         project.setConsumer(consumer);
         project.setProducer(producer);
         project.setTopics(topicConfig);

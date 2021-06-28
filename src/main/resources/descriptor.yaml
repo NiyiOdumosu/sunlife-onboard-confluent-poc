@@ -14,15 +14,16 @@ projects:
   producer:
     principal: "Group:usersGroup-write"
   schema:
-    id: 0
     principal: "Group:usersGroup-read"
     subject: "users"
     dataType: "AVRO"
+    valueSchemaFile: ""
+    keySchemaFile: ""
   topics:
     name: "users"
-    topics:
-    - principal: "usersGroup-read"
-    - principal: "usersGroup-write"
+    principals:
+    - principal: "Group:usersGroup-read"
+    - principal: "Group:usersGroup-write"
     config:
       replicationFactor: 3
       numPartitions: 3

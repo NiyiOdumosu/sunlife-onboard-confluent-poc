@@ -16,7 +16,7 @@ public class Project {
 
     private Streams streams;
 
-    private Schema schema;
+    private ConfluentSchema schema;
 
     private TopicConfig topics;
 
